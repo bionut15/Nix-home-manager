@@ -131,7 +131,6 @@
   hardware = {
     graphics.enable = true;
     cpu.amd.updateMicrocode = true;
-    opengl.enable = true;
 
     bluetooth = {
       enable = true;

@@ -30,6 +30,8 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
     image = ./house.jpg;
 
+    targets.hyprpaper.enable = lib.mkForce false;
+
     targets.gtk.enable = true;
     targets.kde.enable = false;
     targets.dunst.enable = true;
