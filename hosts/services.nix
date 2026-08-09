@@ -19,7 +19,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-session --cmd Hyprland";
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --cmd Hyprland";
           user = "greeter";
         };
       };
@@ -73,11 +73,11 @@
       };
     };
 
-    logind = {
-      lidSwitch = "suspend";
-      lidSwitchDocked = "suspend";
-      lidSwitchExternalPower = "suspend";
-    };
+    # logind = {
+    #   settings.lidSwitch = "suspend";
+    #   settings.lidSwitchDocked = "suspend";
+    #   settings.lidSwitchExternalPower = "suspend";
+    # };
     flatpak.enable = true;
 
     pipewire = {
@@ -86,7 +86,8 @@
       audio.enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
-      #pulse.enable = true;
+      pulse.enable = true;
+      wireplumber.enable = true;
 
       wireplumber.extraConfig = {
         "monitor.bluez.properties" = {
@@ -105,6 +106,8 @@
       pkgs.platformio-core
       pkgs.openocd
     ];
+
+    pulseaudio.enable = false;
 
     mpd = {
       enable = true;

@@ -18,13 +18,16 @@
 
       exec-once = [
         # "hyprpaper"
+        "wireplumber"
+        "pipewire"
+        "pipewire-pulse"
         "dbus-update-activation-environment --systemd --all"
         "hyprpanel &"
         "blueman-applet"
         "nm-applet --indicator &"
         "hyprctl setcursor Bibata-Modern-Ice 22"
         "hypridle"
-        "asusctl profile -P Quiet &"
+        # "asusctl profile -P Quiet &"
         "[workspace 1 silent] firefox"
         "[workspace 2 silent] alacritty  -e tmux "
       ];
@@ -51,8 +54,8 @@
       ];
 
       general = {
-        gaps_in = 4;
-        gaps_out = 6;
+        gaps_in = 0;
+        gaps_out = 0;
 
         border_size = 2;
 
@@ -66,7 +69,7 @@
       };
 
       decoration = {
-        rounding = 6;
+        rounding = 0;
 
         blur = {
           enabled = true;
@@ -198,6 +201,7 @@
         lock_cmd = "pidof hyprlock || hyprlock";
         before_sleep_cmd = "loginctl lock-session";
         after_sleep_cmd = "hyprctl dispatch dpms on ";
+        ignore_wayland_inhibit = false;
         ignore_dbus_inhibit = false;
       };
 
